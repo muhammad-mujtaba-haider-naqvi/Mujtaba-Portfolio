@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <header className="relative z-50 h-[64px] bg-night md:h-[78px]">
       <nav
-        className="mx-auto flex h-full max-w-[1250px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12"
+        className="site-container mx-auto flex h-full max-w-[1250px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12"
         aria-label="Primary navigation"
       >
         <a

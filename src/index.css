@@ -26,8 +26,42 @@ body {
   box-sizing: border-box;
 }
 
+/* Scale the editorial composition with the available desktop height. */
+@media (min-width: 768px) {
+  .hero-label {
+    margin-bottom: clamp(14px, 2.5svh, 28px);
+  }
+
+  .hero-title {
+    font-size: clamp(50px, min(4.25vw, 8svh), 68px);
+  }
+
+  .hero-description {
+    margin-top: clamp(18px, 3.8svh, 40px);
+  }
+
+  .hero-actions {
+    margin-top: clamp(18px, 3.4svh, 36px);
+  }
+
+  .hero-button {
+    height: clamp(52px, 6.6svh, 66px);
+  }
+}
+
+/* Preserve the reference's 1250/1672 content proportion on desktop widths. */
+@media (min-width: 1024px) {
+  .site-container,
+  .hero-stage {
+    width: min(1250px, 75vw);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 /* Keep the full desktop composition inside short landscape viewports. */
-@media (min-width: 768px) and (max-height: 800px) {
+@media (min-width: 768px) and (max-height: 800px),
+  (min-width: 768px) and (min-aspect-ratio: 2/1) {
   .hero-copy {
     top: clamp(32px, 7vh, 58px);
   }
@@ -64,6 +98,16 @@ body {
 
   .hero-socials {
     bottom: clamp(31px, 5.5vh, 49px);
+  }
+
+  .hero-person {
+    height: 105%;
+  }
+}
+
+@media (min-width: 768px) and (min-aspect-ratio: 2/1) {
+  .hero-person {
+    right: 13%;
   }
 }
 

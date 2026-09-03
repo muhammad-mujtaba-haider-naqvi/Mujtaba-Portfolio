@@ -44,7 +44,7 @@ export default function Hero() {
       <img
         src={mujtabaCutout}
         alt="Mujtaba"
-        className="hero-person pointer-events-none absolute bottom-0 left-1/2 z-10 h-[40%] w-auto max-w-none -translate-x-1/2 object-contain md:left-auto md:right-[-5%] md:h-[72%] md:translate-x-0 lg:right-[8%] lg:h-[86%] xl:right-[10%] xl:h-[92%] 2xl:h-[94%]"
+        className="hero-person pointer-events-none absolute bottom-0 left-1/2 z-10 h-[40%] w-auto max-w-none -translate-x-1/2 object-contain md:left-auto md:right-[-5%] md:h-[72%] md:translate-x-0 lg:right-[8%] lg:h-full"
         decoding="async"
         fetchPriority="high"
         draggable={false}
@@ -53,16 +53,15 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-b from-[#eee9e1]/95 via-[#eee9e1]/55 to-transparent md:hidden" />
 
       {/* Layers 3–5: all interactive UI remains above the person. */}
-      <div className="relative z-30 mx-auto min-h-[1400px] max-w-[1250px] px-6 pb-10 pt-14 md:h-full md:min-h-0 md:px-8 md:py-0 xl:px-0">
-        <div className="hero-copy relative z-10 max-w-[560px] md:absolute md:left-8 md:top-[14%] xl:left-0">
+      <div className="hero-stage relative z-30 mx-auto min-h-[1400px] max-w-[1250px] px-6 pb-10 pt-14 md:h-full md:min-h-0 md:px-8 md:py-0 xl:px-0">
+        <div className="hero-copy relative z-10 max-w-[610px] md:absolute md:left-8 md:top-[18%] xl:left-0">
           <p className="hero-label mb-7 text-[12px] font-bold uppercase tracking-[0.2em] text-ink">| Mujtaba |</p>
           <h1
             id="hero-heading"
-            className="hero-title font-serif text-[clamp(3rem,5vw,4.75rem)] font-medium leading-[0.98] tracking-[-0.025em] text-accent"
+            className="hero-title font-serif text-[clamp(3rem,4.25vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.025em] text-accent"
           >
-            Computer Science &amp;
-            <br />
-            Software Developer
+            <span className="block md:whitespace-nowrap">Computer Science &amp;</span>
+            <span className="block md:whitespace-nowrap">Software Developer</span>
           </h1>
           <p className="hero-description mt-10 max-w-[440px] text-[17px] leading-[1.6] text-ink md:text-[18px]">
             Building practical software and exploring
@@ -88,7 +87,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <aside className="hero-stats relative z-10 mt-14 flex max-w-[390px] items-start justify-between md:absolute md:right-8 md:top-[15%] md:mt-0 md:w-[150px] md:flex-col md:items-center xl:right-0" aria-label="Portfolio statistics">
+        <aside className="hero-stats relative z-10 mt-14 flex max-w-[390px] items-start justify-between md:absolute md:right-8 md:top-[19%] md:mt-0 md:w-[150px] md:flex-col md:items-center xl:right-0" aria-label="Portfolio statistics">
           <div className="hidden size-[68px] place-items-center rounded-full bg-[#24211b] text-accent md:grid">
             <Code2 size={30} strokeWidth={1.8} />
           </div>
@@ -100,7 +99,7 @@ export default function Hero() {
           ))}
         </aside>
 
-        <div id="contact" className="hero-info relative z-10 mt-12 flex flex-col gap-7 md:absolute md:bottom-[64px] md:left-8 md:mt-0 md:flex-row md:gap-[62px] xl:left-0">
+        <div id="contact" className="hero-info relative z-10 mt-12 flex flex-col gap-7 md:absolute md:bottom-[75px] md:left-8 md:mt-0 md:flex-row md:gap-[62px] xl:left-0">
           <InfoGroup icon={Mail} title="Contact Information">
             <a href={portfolio.emailUrl}>{portfolio.email}</a>
             <a href={portfolio.linkedinUrl}>{portfolio.linkedinLabel}</a>
@@ -111,7 +110,7 @@ export default function Hero() {
           </InfoGroup>
         </div>
 
-        <div className="hero-socials relative z-40 mt-[400px] flex items-center justify-center gap-9 text-white md:absolute md:bottom-[73px] md:left-[72%] md:mt-0 md:-translate-x-1/2 md:justify-start md:gap-10">
+        <div className="hero-socials relative z-40 mt-[400px] flex items-center justify-center gap-9 text-white md:absolute md:bottom-[89px] md:left-[72%] md:mt-0 md:-translate-x-1/2 md:justify-start md:gap-10">
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}
