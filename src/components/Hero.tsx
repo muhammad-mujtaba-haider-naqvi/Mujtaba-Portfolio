@@ -78,7 +78,6 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              id="resume"
               href={portfolio.resumeUrl}
               download
               className="hero-button inline-flex h-[62px] w-full items-center justify-center border border-accent bg-transparent px-7 text-[14px] font-semibold text-accent outline-none transition-colors duration-200 hover:bg-accent hover:text-ink focus-visible:ring-2 focus-visible:ring-ink sm:w-[195px] md:h-[66px]"
@@ -105,7 +104,7 @@ export default function Hero() {
           ))}
         </aside>
 
-        <div id="contact" className="hero-socials relative z-40 mt-[400px] flex items-center justify-start gap-9 text-ink [&>a:first-child]:-ml-px md:absolute md:bottom-[60px] md:left-8 md:mt-0 md:gap-10 xl:left-0">
+        <div className="hero-socials relative z-40 mt-[400px] flex items-center justify-start gap-9 text-ink [&>a:first-child]:-ml-px md:absolute md:bottom-[60px] md:left-8 md:mt-0 md:gap-10 xl:left-0">
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}

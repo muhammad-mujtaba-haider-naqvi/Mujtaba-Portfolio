@@ -26,6 +26,62 @@ body {
   box-sizing: border-box;
 }
 
+.projects-track {
+  --project-card-width: 86vw;
+  --project-card-gap: 24px;
+  display: flex;
+  gap: var(--project-card-gap);
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding-inline: calc((100vw - var(--project-card-width)) / 2);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  touch-action: pan-x pan-y;
+}
+
+.projects-track::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  width: var(--project-card-width);
+}
+
+@media (min-width: 640px) {
+  .projects-track {
+    --project-card-width: 360px;
+    --project-card-gap: 26px;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects-track {
+    --project-card-width: clamp(360px, 46vw, 420px);
+    --project-card-gap: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-track {
+    --project-card-width: clamp(350px, 25.5vw, 430px);
+    --project-card-gap: 28px;
+  }
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Scale the editorial composition with the available desktop height. */
 @media (min-width: 768px) {
   .hero .hero-label {
@@ -175,5 +231,10 @@ body {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal-section {
+    opacity: 1;
+    transform: none;
   }
 }

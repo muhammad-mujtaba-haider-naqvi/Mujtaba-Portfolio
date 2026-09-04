@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Project preview placeholder</title>
+  <desc id="description">A neutral warm-toned placeholder for a future project screenshot.</desc>
+  <rect width="1200" height="800" fill="#2b2520"/>
+  <rect x="70" y="70" width="1060" height="660" rx="56" fill="#342d27" stroke="#c2986d" stroke-opacity=".28" stroke-width="4"/>
+  <rect x="130" y="135" width="940" height="430" rx="34" fill="#211d19"/>
+  <circle cx="170" cy="620" r="13" fill="#c2986d"/>
+  <rect x="205" y="607" width="250" height="26" rx="13" fill="#eee7de" fill-opacity=".22"/>
+  <rect x="130" y="660" width="560" height="18" rx="9" fill="#eee7de" fill-opacity=".1"/>
+  <text x="600" y="365" fill="#eee7de" fill-opacity=".58" font-family="Arial, sans-serif" font-size="38" font-weight="600" letter-spacing="8" text-anchor="middle">PROJECT PREVIEW</text>
+</svg>
