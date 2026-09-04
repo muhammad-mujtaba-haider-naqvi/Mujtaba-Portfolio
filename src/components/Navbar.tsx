@@ -20,10 +20,17 @@ export default function Navbar() {
       >
         <a
           href="#top"
-          className="font-serif text-[30px] font-semibold leading-none text-accent outline-none transition-colors duration-200 hover:text-white focus-visible:ring-2 focus-visible:ring-accent"
+          className="block size-11 shrink-0 overflow-hidden rounded-full bg-black outline-none transition-opacity duration-200 hover:opacity-90 focus-visible:ring-2 focus-visible:ring-accent md:size-14"
           aria-label="Mujtaba — home"
         >
-          &lt;M /&gt;
+          <img
+            src="/syed-mujtaba-logo.png"
+            alt=""
+            className="pointer-events-none size-full rounded-full object-contain"
+            width="1254"
+            height="1254"
+            decoding="async"
+          />
         </a>
 
         <div className="hidden items-center gap-[31px] md:flex">

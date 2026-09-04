@@ -1,16 +1,14 @@
-import { ArrowRight, Code2, FileText, Link, Mail } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import heroBackground from '../assets/hero/hero-background.png'
 import mujtabaCutout from '../assets/hero/mujtaba-cutout.png'
 
 // Replace these placeholders with your real details.
 const portfolio = {
-  email: 'your.email@example.com',
-  emailUrl: 'mailto:your.email@example.com',
-  githubLabel: 'GitHub / your-username',
-  githubUrl: 'https://github.com/your-username',
-  linkedinLabel: 'LinkedIn / your-profile',
-  linkedinUrl: 'https://www.linkedin.com/in/your-profile',
-  resumeLabel: 'Resume / Download',
+  emailUrl: '',
+  githubUrl: 'https://github.com/muhammad-mujtaba-haider-naqvi',
+  linkedinUrl: 'https://www.linkedin.com/in/syed-mujtaba72',
+  whatsappUrl: 'https://wa.me/923214796270',
   resumeUrl: '/resume.pdf',
 }
 
@@ -20,10 +18,10 @@ const stats = [
 ]
 
 const socials = [
-  { label: 'GitHub', href: portfolio.githubUrl, Icon: Code2 },
-  { label: 'LinkedIn', href: portfolio.linkedinUrl, Icon: Link },
+  { label: 'GitHub', href: portfolio.githubUrl, Icon: FaGithub },
+  { label: 'LinkedIn', href: portfolio.linkedinUrl, Icon: FaLinkedinIn },
   { label: 'Email', href: portfolio.emailUrl, Icon: Mail },
-  { label: 'Resume', href: portfolio.resumeUrl, Icon: FileText },
+  { label: 'WhatsApp', href: portfolio.whatsappUrl, Icon: FaWhatsapp },
 ]
 
 export default function Hero() {
@@ -55,7 +53,10 @@ export default function Hero() {
       {/* Layers 3–5: all interactive UI remains above the person. */}
       <div className="hero-stage relative z-30 mx-auto min-h-[1400px] max-w-[1250px] px-6 pb-10 pt-14 md:h-full md:min-h-0 md:px-8 md:py-0 xl:px-0">
         <div className="hero-copy relative z-10 max-w-[610px] md:absolute md:left-8 md:top-[18%] xl:left-0">
-          <p className="hero-label mb-7 text-[12px] font-bold uppercase tracking-[0.2em] text-ink">| Mujtaba |</p>
+          <p className="hero-label mb-7 font-display text-[30px] font-semibold leading-none tracking-[0.01em] md:text-[34px]">
+            <span className="text-ink">I&apos;m </span>
+            <span className="text-[34px] font-bold text-[#5d3f2b] md:text-[38px]">Syed Mujtaba</span>
+          </p>
           <h1
             id="hero-heading"
             className="hero-title font-serif text-[clamp(3rem,4.25vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.025em] text-accent"
@@ -88,9 +89,14 @@ export default function Hero() {
         </div>
 
         <aside className="hero-stats relative z-10 mt-14 flex max-w-[390px] items-start justify-between md:absolute md:right-8 md:top-[19%] md:mt-0 md:w-[150px] md:flex-col md:items-center xl:right-0" aria-label="Portfolio statistics">
-          <div className="hidden size-[68px] place-items-center rounded-full bg-[#24211b] text-accent md:grid">
-            <Code2 size={30} strokeWidth={1.8} />
-          </div>
+          <img
+            src="/syed-mujtaba-logo.png"
+            alt="Syed Mujtaba logo"
+            className="hidden size-[68px] rounded-full bg-black object-contain md:block"
+            width="1254"
+            height="1254"
+            decoding="async"
+          />
           {stats.map((stat, index) => (
             <div key={stat.label} className={`text-center ${index === 0 ? 'md:mt-7' : 'md:mt-11'}`}>
               <p className="font-serif text-[38px] font-medium leading-none text-ink">{stat.value}</p>
@@ -99,25 +105,14 @@ export default function Hero() {
           ))}
         </aside>
 
-        <div id="contact" className="hero-info relative z-10 mt-12 flex flex-col gap-7 md:absolute md:bottom-[75px] md:left-8 md:mt-0 md:flex-row md:gap-[62px] xl:left-0">
-          <InfoGroup icon={Mail} title="Contact Information">
-            <a href={portfolio.emailUrl}>{portfolio.email}</a>
-            <a href={portfolio.linkedinUrl}>{portfolio.linkedinLabel}</a>
-          </InfoGroup>
-          <InfoGroup icon={Code2} title="Developer Profiles">
-            <a href={portfolio.githubUrl}>{portfolio.githubLabel}</a>
-            <a href={portfolio.resumeUrl}>{portfolio.resumeLabel}</a>
-          </InfoGroup>
-        </div>
-
-        <div className="hero-socials relative z-40 mt-[400px] flex items-center justify-center gap-9 text-white md:absolute md:bottom-[89px] md:left-[72%] md:mt-0 md:-translate-x-1/2 md:justify-start md:gap-10">
+        <div id="contact" className="hero-socials relative z-40 mt-[400px] flex items-center justify-start gap-9 text-ink [&>a:first-child]:-ml-px md:absolute md:bottom-[60px] md:left-8 md:mt-0 md:gap-10 xl:left-0">
           {socials.map(({ label, href, Icon }) => (
             <a
               key={label}
               href={href}
               aria-label={label}
               className="outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent"
-              {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+              {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               <Icon size={29} strokeWidth={2} />
             </a>
@@ -125,27 +120,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
-}
-
-type InfoGroupProps = {
-  icon: typeof Mail
-  title: string
-  children: React.ReactNode
-}
-
-function InfoGroup({ icon: Icon, title, children }: InfoGroupProps) {
-  return (
-    <div className="flex items-center gap-5">
-      <div className="grid size-[60px] shrink-0 place-items-center rounded-full bg-[#24211b] text-accent md:size-[64px]">
-        <Icon size={26} strokeWidth={1.8} />
-      </div>
-      <div>
-        <h2 className="mb-2 text-[11px] font-bold uppercase tracking-[0.17em] text-ink">{title}</h2>
-        <div className="flex flex-col gap-1 text-[14px] leading-tight text-charcoal [&_a]:w-fit [&_a]:border-b [&_a]:border-charcoal/70 [&_a]:outline-none [&_a]:transition-colors hover:[&_a]:text-accent focus-visible:[&_a]:ring-2 focus-visible:[&_a]:ring-accent md:text-[15px]">
-          {children}
-        </div>
-      </div>
-    </div>
   )
 }

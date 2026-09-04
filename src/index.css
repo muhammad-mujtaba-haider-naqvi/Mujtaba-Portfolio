@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -29,7 +29,7 @@ body {
 /* Scale the editorial composition with the available desktop height. */
 @media (min-width: 768px) {
   .hero .hero-label {
-    margin-bottom: clamp(14px, 2.5svh, 28px);
+    margin-bottom: clamp(24px, 3.2svh, 36px);
   }
 
   .hero .hero-title {
@@ -41,7 +41,7 @@ body {
   }
 
   .hero .hero-actions {
-    margin-top: clamp(18px, 3.4svh, 36px);
+    margin-top: clamp(26px, 4svh, 42px);
   }
 
   .hero .hero-button {
@@ -49,13 +49,27 @@ body {
   }
 }
 
-/* Preserve the reference's 1250/1672 content proportion on desktop widths. */
+/* Keep the desktop content close to the viewport edges with a small safe gutter. */
 @media (min-width: 1024px) {
   .site-container.site-container,
   .hero .hero-stage {
-    width: min(1250px, 75vw);
+    width: calc(100% - 48px);
+    max-width: none;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .hero .hero-copy,
+  .hero .hero-socials {
+    left: 8px;
+  }
+
+  .site-container.site-container > a:first-child {
+    margin-left: 8px;
+  }
+
+  .hero .hero-stats {
+    right: 0;
   }
 }
 
@@ -76,7 +90,7 @@ body {
   }
 
   .hero .hero-label {
-    margin-bottom: 20px;
+    margin-bottom: 26px;
   }
 
   .hero .hero-title {
@@ -90,7 +104,7 @@ body {
   }
 
   .hero .hero-actions {
-    margin-top: 24px;
+    margin-top: 30px;
   }
 
   .hero .hero-button {
@@ -99,10 +113,6 @@ body {
 
   .hero .hero-stats {
     top: 82px;
-  }
-
-  .hero .hero-info {
-    bottom: 48px;
   }
 
   .hero .hero-socials {
@@ -122,7 +132,7 @@ body {
   }
 
   .hero .hero-label {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
   }
 
   .hero .hero-title {
@@ -134,7 +144,7 @@ body {
   }
 
   .hero .hero-actions {
-    margin-top: 22px;
+    margin-top: 28px;
   }
 
   .hero .hero-button {
@@ -143,10 +153,6 @@ body {
 
   .hero .hero-stats {
     top: 78px;
-  }
-
-  .hero .hero-info {
-    bottom: 42px;
   }
 
   .hero .hero-socials {
