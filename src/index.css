@@ -111,6 +111,460 @@ body {
   }
 }
 
+.value-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--card-delay, 0ms),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--card-delay, 0ms),
+    box-shadow 300ms ease;
+}
+
+.value-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.value-card--visible:hover {
+  transition-delay: 0ms;
+}
+
+.build-step {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.about-visual--active .build-step {
+  animation: build-step-in 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.about-visual--active .build-step:nth-child(1) {
+  animation-delay: 140ms;
+}
+
+.about-visual--active .build-step:nth-child(2) {
+  animation-delay: 300ms;
+}
+
+.about-visual--active .build-step:nth-child(3) {
+  animation-delay: 460ms;
+}
+
+.build-connector {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.about-visual--active .build-connector {
+  animation: build-connector-in 260ms ease-out forwards;
+  animation-delay: 260ms;
+}
+
+.about-visual--active .build-step:nth-child(2) .build-connector {
+  animation-delay: 420ms;
+}
+
+.build-layer {
+  transition: transform 300ms ease;
+}
+
+.value-card:hover .build-step:nth-child(1) .build-layer {
+  transform: translateY(-3px);
+}
+
+.value-card:hover .build-step:nth-child(3) .build-layer {
+  transform: translateY(3px);
+}
+
+@keyframes build-step-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes build-connector-in {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.network-line,
+.agent-line {
+  fill: none;
+  stroke: #9a6338;
+  stroke-linecap: round;
+  stroke-width: 1.25;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.agent-line {
+  stroke: #c2986d;
+}
+
+.network-center,
+.agent-center,
+.network-node,
+.agent-node,
+.results-visual {
+  opacity: 0;
+  transform: translateY(7px) scale(0.97);
+}
+
+.network-center,
+.agent-center {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.about-visual--active .network-center,
+.about-visual--active .agent-center {
+  animation: about-center-in 420ms cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
+}
+
+.about-visual--active .network-line,
+.about-visual--active .agent-line {
+  animation: about-line-draw 620ms ease-out 300ms forwards;
+}
+
+.about-visual--active .network-node,
+.about-visual--active .agent-node {
+  animation: about-node-in 420ms cubic-bezier(0.22, 1, 0.36, 1) var(--node-delay, 450ms) forwards;
+}
+
+.value-card:hover .network-line,
+.value-card:hover .agent-line {
+  animation: about-line-pulse 850ms ease-out;
+}
+
+.about-visual--active.results-visual {
+  animation: results-panel-in 540ms cubic-bezier(0.22, 1, 0.36, 1) 180ms forwards;
+}
+
+.result-ring {
+  transition: stroke-dashoffset 1000ms cubic-bezier(0.22, 1, 0.36, 1) 280ms;
+}
+
+@keyframes about-center-in {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes about-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes about-line-pulse {
+  0% {
+    stroke-dashoffset: 1;
+    stroke-width: 1.25;
+  }
+
+  55% {
+    stroke-width: 2;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 1.25;
+  }
+}
+
+@keyframes about-node-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes results-panel-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.skill-card {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--skill-card-delay, 0ms),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--skill-card-delay, 0ms),
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.skill-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card--visible:hover {
+  transform: translateY(-2px);
+  transition-delay: 0ms;
+}
+
+.skill-architecture-step,
+.skill-pipeline-step,
+.skill-network-center,
+.skill-network-node,
+.skill-delivery-node,
+.skill-delivery-caption {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.skill-network-center {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.skill-network-node:nth-of-type(2),
+.skill-network-node:nth-of-type(5) {
+  transform: translateX(-50%) translateY(8px);
+}
+
+.skill-network-node:nth-of-type(3),
+.skill-network-node:nth-of-type(4) {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.skill-vertical-connector,
+.skill-pipeline-connector {
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+}
+
+.skill-network-line,
+.skill-delivery-line,
+.skill-delivery-return {
+  fill: none;
+  stroke: #fff0de;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.78;
+  stroke-width: 1.25;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.skill-delivery-line {
+  marker-end: none;
+}
+
+.skill-visual--active .skill-architecture-step,
+.skill-visual--active .skill-pipeline-step {
+  animation: skill-step-in 460ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.skill-visual--active .skill-architecture-step:nth-child(1),
+.skill-visual--active .skill-pipeline-step:nth-child(1) {
+  animation-delay: 140ms;
+}
+
+.skill-visual--active .skill-architecture-step:nth-child(2),
+.skill-visual--active .skill-pipeline-step:nth-child(2) {
+  animation-delay: 280ms;
+}
+
+.skill-visual--active .skill-architecture-step:nth-child(3),
+.skill-visual--active .skill-pipeline-step:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+.skill-visual--active .skill-pipeline-step:nth-child(4) {
+  animation-delay: 560ms;
+}
+
+.skill-visual--active .skill-vertical-connector,
+.skill-visual--active .skill-pipeline-connector {
+  animation: skill-connector-in 260ms ease-out 360ms forwards;
+}
+
+.skill-visual--active .skill-architecture-step:nth-child(2) .skill-vertical-connector,
+.skill-visual--active .skill-pipeline-step:nth-child(2) .skill-pipeline-connector {
+  animation-delay: 500ms;
+}
+
+.skill-visual--active .skill-pipeline-step:nth-child(3) .skill-pipeline-connector {
+  animation-delay: 640ms;
+}
+
+.skill-visual--active .skill-network-center {
+  animation: skill-network-center-in 430ms cubic-bezier(0.22, 1, 0.36, 1) 140ms forwards;
+}
+
+.skill-visual--active .skill-network-line {
+  animation: skill-line-draw 580ms ease-out 330ms forwards;
+}
+
+.skill-visual--active .skill-network-node {
+  animation: skill-node-in 420ms cubic-bezier(0.22, 1, 0.36, 1) var(--skill-node-delay, 500ms) forwards;
+}
+
+.skill-visual--active .skill-network-node:nth-of-type(2),
+.skill-visual--active .skill-network-node:nth-of-type(5) {
+  animation-name: skill-centered-node-in;
+}
+
+.skill-visual--active .skill-network-node:nth-of-type(3),
+.skill-visual--active .skill-network-node:nth-of-type(4) {
+  animation-name: skill-side-node-in;
+}
+
+.skill-visual--active .skill-delivery-node {
+  animation: skill-node-in 430ms cubic-bezier(0.22, 1, 0.36, 1) var(--skill-node-delay, 200ms) forwards;
+}
+
+.skill-visual--active .skill-delivery-node:nth-child(2) {
+  animation-name: skill-centered-delivery-node-in;
+}
+
+.skill-visual--active .skill-delivery-line {
+  animation: skill-line-draw 360ms ease-out 420ms forwards;
+}
+
+.skill-visual--active .skill-delivery-return {
+  animation: skill-line-draw 600ms ease-out 650ms forwards;
+}
+
+.skill-visual--active .skill-delivery-caption {
+  animation: skill-caption-in 380ms ease-out 820ms forwards;
+}
+
+.skill-card:hover .skill-network-line,
+.skill-card:hover .skill-delivery-line,
+.skill-card:hover .skill-delivery-return {
+  stroke-opacity: 1;
+}
+
+@keyframes skill-step-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skill-connector-in {
+  to {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+@keyframes skill-network-center-in {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes skill-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes skill-node-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes skill-centered-node-in {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes skill-side-node-in {
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@keyframes skill-centered-delivery-node-in {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes skill-caption-in {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.contact-profile {
+  opacity: 0;
+  transform: translateX(-18px);
+}
+
+.contact-content,
+.contact-form-row {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.contact-arc {
+  opacity: 0;
+}
+
+.reveal-section--visible .contact-profile {
+  animation: contact-profile-in 720ms cubic-bezier(0.22, 1, 0.36, 1) 80ms forwards;
+}
+
+.reveal-section--visible .contact-content {
+  animation: contact-content-in 680ms cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
+}
+
+.reveal-section--visible .contact-form-row {
+  animation: contact-content-in 560ms cubic-bezier(0.22, 1, 0.36, 1) 300ms forwards;
+}
+
+.reveal-section--visible form > div:nth-of-type(2) .contact-form-row {
+  animation-delay: 380ms;
+}
+
+.reveal-section--visible form > .contact-form-row:nth-of-type(3) {
+  animation-delay: 460ms;
+}
+
+.reveal-section--visible form > .contact-form-row:nth-of-type(5) {
+  animation-delay: 540ms;
+}
+
+.reveal-section--visible .contact-arc {
+  animation: contact-arc-in 900ms ease-out 220ms forwards;
+}
+
+@keyframes contact-profile-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes contact-content-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-arc-in {
+  to {
+    opacity: 1;
+  }
+}
+
 /* Scale the editorial composition with the available desktop height. */
 @media (min-width: 768px) {
   .hero .hero-label {
@@ -274,5 +728,100 @@ body {
 
   .journey-item {
     animation: none;
+  }
+
+  .value-card,
+  .build-step,
+  .network-center,
+  .agent-center,
+  .network-node,
+  .agent-node,
+  .results-visual {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+
+  .network-center,
+  .agent-center {
+    transform: translate(-50%, -50%);
+  }
+
+  .build-connector {
+    transform: scaleY(1);
+    animation: none;
+  }
+
+  .network-line,
+  .agent-line {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .result-ring {
+    transition: none;
+  }
+
+  .skill-card,
+  .skill-architecture-step,
+  .skill-pipeline-step,
+  .skill-network-center,
+  .skill-network-node,
+  .skill-delivery-node,
+  .skill-delivery-caption {
+    opacity: 1;
+    animation: none;
+    transition: none;
+  }
+
+  .skill-card,
+  .skill-architecture-step,
+  .skill-pipeline-step,
+  .skill-delivery-node {
+    transform: none;
+  }
+
+  .skill-network-center {
+    transform: translate(-50%, -50%);
+  }
+
+  .skill-network-node:nth-of-type(2),
+  .skill-network-node:nth-of-type(5),
+  .skill-delivery-node:nth-child(2),
+  .skill-delivery-caption {
+    transform: translateX(-50%);
+  }
+
+  .skill-network-node:nth-of-type(3),
+  .skill-network-node:nth-of-type(4) {
+    transform: translateY(-50%);
+  }
+
+  .skill-vertical-connector,
+  .skill-pipeline-connector {
+    transform: translateX(-50%) scaleY(1);
+    animation: none;
+  }
+
+  .skill-network-line,
+  .skill-delivery-line,
+  .skill-delivery-return {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .contact-profile,
+  .contact-content,
+  .contact-form-row,
+  .contact-arc {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+
+  .contact-submit-arrow {
+    transform: none !important;
   }
 }
