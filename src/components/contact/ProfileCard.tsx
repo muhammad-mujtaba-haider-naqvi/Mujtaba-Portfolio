@@ -1,11 +1,10 @@
-import { FileText, Mail } from 'lucide-react'
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import portrait from '../../assets/contact/mujtaba-portrait-square.png'
 
 const profileLinks = {
   github: 'https://github.com/muhammad-mujtaba-haider-naqvi',
   linkedin: 'https://www.linkedin.com/in/syed-mujtaba72',
-  resume: '/resume.pdf',
+  instagram: 'https://www.instagram.com/mujtabahaider.72/',
 }
 
 const socialClassName =
@@ -58,11 +57,8 @@ export default function ProfileCard() {
           <a href={profileLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" className={socialClassName}>
             <FaLinkedinIn size={19} />
           </a>
-          <a href="mailto:smujtabahaider6@gmail.com" aria-label="Email me" className={socialClassName}>
-            <Mail size={20} strokeWidth={2} />
-          </a>
-          <a href={profileLinks.resume} download aria-label="Download my resume" className={socialClassName}>
-            <FileText size={20} strokeWidth={2} />
+          <a href={profileLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile" className={socialClassName}>
+            <FaInstagram size={20} />
           </a>
         </div>
 

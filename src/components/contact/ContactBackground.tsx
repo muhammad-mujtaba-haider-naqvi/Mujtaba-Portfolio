@@ -5,10 +5,6 @@ export default function ContactBackground() {
       <div className="contact-arc absolute -left-[180px] -top-[210px] size-[430px] rounded-full border border-[#ad835a]/40 sm:-left-[140px]" />
       <div className="contact-arc absolute -right-[230px] -top-[280px] hidden size-[630px] rounded-full border border-[#ad835a]/30 md:block" />
       <div className="contact-arc absolute -bottom-[250px] -left-[260px] hidden size-[420px] rounded-full border border-[#c2986d]/35 sm:block" />
-
-      <div className="absolute right-12 top-14 hidden text-[9px] font-medium uppercase leading-[1.9] tracking-[0.24em] text-[#ad835a]/65 xl:block">
-        New Opportunities<br />Great Conversations<br />Bigger Ideas
-      </div>
     </div>
   )
 }

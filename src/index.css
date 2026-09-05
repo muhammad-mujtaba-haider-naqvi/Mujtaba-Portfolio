@@ -824,4 +824,9 @@ body {
   .contact-submit-arrow {
     transform: none !important;
   }
+
+  .footer-link-arrow,
+  .footer-top-arrow {
+    transform: none !important;
+  }
 }

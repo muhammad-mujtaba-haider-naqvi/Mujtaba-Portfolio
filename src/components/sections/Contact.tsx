@@ -20,10 +20,10 @@ export default function Contact() {
 
           <h2
             id="contact-heading"
-            className="mt-7 font-serif text-[clamp(2.5rem,11vw,3.125rem)] font-semibold uppercase leading-[0.9] tracking-[-0.035em] sm:text-[clamp(3.25rem,8vw,4rem)] lg:text-[clamp(3.25rem,4.2vw,4rem)] 2xl:text-[clamp(4rem,5.25vw,5.75rem)]"
+            className="mt-7 font-serif text-[clamp(2.75rem,11.5vw,3.5rem)] font-semibold uppercase leading-[0.9] tracking-[-0.035em] sm:text-[clamp(3.5rem,8.5vw,4.4rem)] lg:text-[clamp(3.6rem,4.5vw,4.6rem)] 2xl:text-[clamp(4.4rem,5.5vw,6.2rem)]"
           >
             <span className="block text-[#f5efe7]">Let&apos;s Connect</span>
-            <span className="mt-3 block text-[#ad835a]">And Build Together</span>
+            <span className="mt-3 block h-[0.9em]" aria-hidden="true" />
           </h2>
 
           <p className="mt-7 max-w-[790px] text-[16px] leading-[1.55] text-[#c8beb4] sm:text-[18px] lg:text-[17px] xl:text-[19px]">

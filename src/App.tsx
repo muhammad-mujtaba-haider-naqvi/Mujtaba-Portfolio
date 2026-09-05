@@ -5,6 +5,7 @@ import Education from './components/sections/Education'
 import Projects from './components/sections/Projects'
 import Resume from './components/sections/Resume'
 import Skills from './components/sections/Skills'
+import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Reveal from './components/Reveal'
@@ -37,6 +38,9 @@ export default function App() {
           <Contact />
         </Reveal>
       </main>
+      <Reveal>
+        <Footer />
+      </Reveal>
     </>
   )
 }
