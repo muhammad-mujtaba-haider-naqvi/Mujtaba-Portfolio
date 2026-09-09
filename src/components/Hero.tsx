@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="hero relative min-h-[1400px] overflow-hidden bg-transparent md:h-[calc(100svh-78px)] md:min-h-0"
+      className="hero relative min-h-[1400px] overflow-hidden bg-transparent md:h-[calc(100svh-64px)] md:min-h-0"
       aria-labelledby="hero-heading"
     >
       {/* The shared portfolio surface provides the continuous background. */}

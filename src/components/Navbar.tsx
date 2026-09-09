@@ -13,7 +13,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="relative z-50 h-[64px] bg-night md:h-[78px]">
+    <header className="sticky top-0 z-50 h-[54px] bg-night md:h-[64px]">
       <nav
         className="site-container mx-auto flex h-full max-w-[1250px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12"
         aria-label="Primary navigation"

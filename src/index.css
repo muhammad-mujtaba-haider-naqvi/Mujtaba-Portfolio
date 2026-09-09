@@ -634,7 +634,7 @@ body {
 /* Short laptops use a stable canvas instead of squeezing the composition. */
 @media (min-width: 1024px) and (max-height: 750px) {
   .hero.hero {
-    height: max(640px, calc(100svh - 78px));
+    height: max(640px, calc(100svh - 64px));
     min-height: 640px;
   }
 
