@@ -5,7 +5,7 @@ const navigation = [
   { label: 'About Me', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Resume', href: '#resume' },
+  { label: 'Resume', href: '/resume.pdf', download: true },
   { label: 'Contact Me', href: '#contact' },
 ]
 
@@ -38,6 +38,7 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
+              {...('download' in item ? { download: item.download } : {})}
               className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#f4f1ec] outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent"
             >
               {item.label}
@@ -64,6 +65,7 @@ export default function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
+                {...('download' in item ? { download: item.download } : {})}
                 className="border-b border-white/10 py-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:text-accent"
                 onClick={() => setMenuOpen(false)}
               >
