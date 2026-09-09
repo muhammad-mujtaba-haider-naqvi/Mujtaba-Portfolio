@@ -1,12 +1,12 @@
-import { Menu, X } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navigation = [
   { label: 'About Me', href: '#about' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Resume', href: '/resume.pdf', download: true },
-  { label: 'Contact Me', href: '#contact' },
+  { label: 'Experience', href: '#education' },
+  { label: "Let's Connect", href: '#contact', cta: true },
 ]
 
 export default function Navbar() {
@@ -33,15 +33,21 @@ export default function Navbar() {
           />
         </a>
 
-        <div className="hidden items-center gap-[31px] md:flex">
+        <div className="hidden items-center gap-[24px] md:flex lg:gap-[31px]">
           {navigation.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              {...('download' in item ? { download: item.download } : {})}
-              className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[#f4f1ec] outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent"
+              className={
+                'cta' in item
+                  ? 'group inline-flex h-10 items-center gap-2 rounded-full border border-accent bg-accent px-5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white outline-none transition-colors duration-200 hover:border-[#ad835a] hover:bg-[#ad835a] hover:text-black focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-night lg:h-11 lg:px-6 lg:text-[12px]'
+                  : 'text-[12px] font-semibold uppercase tracking-[0.12em] text-[#f4f1ec] outline-none transition-colors duration-200 hover:text-accent focus-visible:text-accent focus-visible:ring-2 focus-visible:ring-accent'
+              }
             >
               {item.label}
+              {'cta' in item && (
+                <ArrowRight className="transition-transform duration-200 group-hover:translate-x-0.5" size={16} strokeWidth={1.8} aria-hidden="true" />
+              )}
             </a>
           ))}
         </div>
@@ -65,11 +71,17 @@ export default function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                {...('download' in item ? { download: item.download } : {})}
-                className="border-b border-white/10 py-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:text-accent"
+                className={
+                  'cta' in item
+                    ? 'group mt-4 inline-flex h-12 w-fit items-center gap-2 rounded-full border border-accent bg-accent px-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-white outline-none transition-colors duration-200 hover:border-[#ad835a] hover:bg-[#ad835a] hover:text-black focus-visible:ring-2 focus-visible:ring-accent'
+                    : 'border-b border-white/10 py-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-white outline-none transition-colors duration-200 hover:text-accent focus-visible:ring-2 focus-visible:ring-accent'
+                }
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
+                {'cta' in item && (
+                  <ArrowRight className="transition-transform duration-200 group-hover:translate-x-0.5" size={16} strokeWidth={1.8} aria-hidden="true" />
+                )}
               </a>
             ))}
           </div>

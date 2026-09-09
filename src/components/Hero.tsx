@@ -9,7 +9,6 @@ const portfolio = {
   githubUrl: 'https://github.com/muhammad-mujtaba-haider-naqvi',
   linkedinUrl: 'https://www.linkedin.com/in/syed-mujtaba72',
   whatsappUrl: 'https://wa.me/923214796270',
-  resumeUrl: '/resume.pdf',
 }
 
 const stats = [
@@ -78,11 +77,10 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href={portfolio.resumeUrl}
-              download
-              className="hero-button inline-flex h-[62px] w-full items-center justify-center border border-accent bg-transparent px-7 text-[14px] font-semibold text-accent outline-none transition-colors duration-200 hover:bg-accent hover:text-ink focus-visible:ring-2 focus-visible:ring-ink sm:w-[195px] md:h-[66px]"
+              href="#contact"
+              className="hero-button inline-flex h-[62px] w-full items-center justify-center border border-accent bg-transparent px-7 text-[14px] font-semibold text-accent outline-none transition-colors duration-200 hover:bg-accent hover:text-white focus-visible:ring-2 focus-visible:ring-ink sm:w-[195px] md:h-[66px]"
             >
-              Download Resume
+              Get in Touch
             </a>
           </div>
         </div>
