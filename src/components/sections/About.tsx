@@ -49,7 +49,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="about-section relative isolate overflow-hidden bg-transparent pb-20 pt-9 sm:pb-24 sm:pt-11 lg:pb-16 lg:pt-5"
+      className="portfolio-section portfolio-section--after-hero about-section relative isolate overflow-hidden bg-transparent"
       aria-labelledby="about-heading"
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12" aria-hidden="true">
@@ -76,7 +76,7 @@ export default function About() {
         </p>
       </header>
 
-      <div className="mx-auto mt-6 grid max-w-[1600px] grid-cols-1 gap-4 px-4 sm:px-6 md:mt-7 md:px-8 lg:mt-4 lg:grid-cols-2 lg:px-10 xl:px-12">
+      <div className="showcase-card-grid">
         {valueCards.map((card, index) => {
           const Visual = visuals[index]
 

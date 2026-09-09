@@ -3,8 +3,8 @@ import {
   useRef,
   useState,
   type CSSProperties,
-  type ReactNode,
 } from 'react'
+import skillPlaceholder from '../../assets/skills/skill-placeholder.svg'
 
 export type Capability = {
   number: string
@@ -17,7 +17,6 @@ export type Capability = {
 type CapabilityCardProps = {
   capability: Capability
   index: number
-  visual: (isVisible: boolean) => ReactNode
 }
 
 const surfaces = {
@@ -27,7 +26,7 @@ const surfaces = {
   mocha: 'from-[#845b42] to-[#71503b]',
 }
 
-export default function CapabilityCard({ capability, index, visual }: CapabilityCardProps) {
+export default function CapabilityCard({ capability, index }: CapabilityCardProps) {
   const cardRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -76,7 +75,15 @@ export default function CapabilityCard({ capability, index, visual }: Capability
         </div>
 
         <div className="relative z-10 flex min-h-[270px] items-center justify-center sm:min-h-0">
-          {visual(isVisible)}
+          <div className="h-[250px] w-full max-w-[360px] overflow-hidden rounded-[22px] border border-white/20 bg-[#211d19] shadow-[0_14px_32px_rgba(25,20,16,0.22)] xl:h-[255px]">
+            <img
+              src={skillPlaceholder}
+              alt={`${capability.title.replace('\n', ' ')} preview placeholder`}
+              className="size-full object-cover"
+              loading="lazy"
+              draggable={false}
+            />
+          </div>
         </div>
       </div>
 

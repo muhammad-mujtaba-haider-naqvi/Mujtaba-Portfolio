@@ -175,7 +175,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="experience-section relative isolate overflow-hidden bg-transparent pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28"
+      className="portfolio-section experience-section relative isolate overflow-hidden bg-transparent"
       aria-labelledby="experience-heading"
     >
       <div className="mx-auto flex max-w-[1530px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12" aria-hidden="true">

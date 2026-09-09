@@ -1,9 +1,5 @@
 import CapabilityCard, { type Capability } from '../skills/CapabilityCard'
 import Foundations from '../skills/Foundations'
-import AiAutomationVisual from '../skills/visuals/AiAutomationVisual'
-import DataMlVisual from '../skills/visuals/DataMlVisual'
-import DevOpsVisual from '../skills/visuals/DevOpsVisual'
-import FullStackVisual from '../skills/visuals/FullStackVisual'
 
 const capabilities: Capability[] = [
   {
@@ -36,13 +32,11 @@ const capabilities: Capability[] = [
   },
 ]
 
-const visuals = [FullStackVisual, AiAutomationVisual, DataMlVisual, DevOpsVisual]
-
 export default function Skills() {
   return (
     <section
       id="skills"
-      className="skills-section relative isolate overflow-hidden bg-transparent pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20"
+      className="portfolio-section skills-section relative isolate overflow-hidden bg-transparent"
       aria-labelledby="skills-heading"
     >
       <div className="mx-auto flex max-w-[1540px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12" aria-hidden="true">
@@ -72,21 +66,16 @@ export default function Skills() {
       </header>
 
       <div
-        className="mx-auto mt-10 grid max-w-[1540px] grid-cols-1 gap-5 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:gap-6 lg:px-10 xl:px-12"
+        className="showcase-card-grid"
         aria-labelledby="capabilities-heading"
       >
-        {capabilities.map((capability, index) => {
-          const Visual = visuals[index]
-
-          return (
-            <CapabilityCard
-              key={capability.number}
-              capability={capability}
-              index={index}
-              visual={(isVisible) => <Visual isVisible={isVisible} />}
-            />
-          )
-        })}
+        {capabilities.map((capability, index) => (
+          <CapabilityCard
+            key={capability.number}
+            capability={capability}
+            index={index}
+          />
+        ))}
       </div>
 
       <Foundations />

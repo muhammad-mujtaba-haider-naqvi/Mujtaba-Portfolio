@@ -193,7 +193,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="projects-section relative min-h-[100svh] overflow-hidden bg-transparent pb-10 pt-12 md:pb-12 md:pt-14">
+    <section id="projects" className="portfolio-section projects-section relative overflow-hidden bg-transparent">
       <div className="relative z-10 mx-auto max-w-[1260px] px-6">
         <div className="hidden items-center gap-5 text-[11px] font-semibold uppercase tracking-[0.42em] text-[#855b38] lg:flex" aria-hidden="true">
           <span className="h-px w-14 bg-accent/70" />
