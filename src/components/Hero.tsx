@@ -4,7 +4,7 @@ import mujtabaCutout from '../assets/hero/mujtaba-cutout.png'
 
 // Replace these placeholders with your real details.
 const portfolio = {
-  emailUrl: '',
+  emailUrl: '#contact',
   githubUrl: 'https://github.com/muhammad-mujtaba-haider-naqvi',
   linkedinUrl: 'https://www.linkedin.com/in/syed-mujtaba72',
   whatsappUrl: 'https://wa.me/923214796270',
