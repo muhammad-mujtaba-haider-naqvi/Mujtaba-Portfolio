@@ -5,8 +5,6 @@ import {
   useState,
   type KeyboardEvent,
 } from 'react'
-import heroBackground from '../../assets/hero/hero-background.png'
-
 type JourneyTab = 'experience' | 'education'
 
 type JourneyItem = {
@@ -177,16 +175,9 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="experience-section relative isolate overflow-hidden bg-canvas pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28"
+      className="experience-section relative isolate overflow-hidden bg-transparent pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28"
       aria-labelledby="experience-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-canvas/35" aria-hidden="true" />
-
       <div className="mx-auto flex max-w-[1530px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12" aria-hidden="true">
         <div className="flex items-center gap-5 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#855b38] sm:text-[11px]">
           <span className="h-px w-10 bg-[#9a6338]/65 sm:w-14" />

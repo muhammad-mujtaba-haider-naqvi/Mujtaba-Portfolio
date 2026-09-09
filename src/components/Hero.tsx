@@ -1,6 +1,5 @@
 import { ArrowRight, Mail } from 'lucide-react'
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
-import heroBackground from '../assets/hero/hero-background.png'
 import mujtabaCutout from '../assets/hero/mujtaba-cutout.png'
 
 // Replace these placeholders with your real details.
@@ -27,17 +26,10 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="hero relative min-h-[1400px] overflow-hidden bg-canvas md:h-[calc(100svh-78px)] md:min-h-0"
+      className="hero relative min-h-[1400px] overflow-hidden bg-transparent md:h-[calc(100svh-78px)] md:min-h-0"
       aria-labelledby="hero-heading"
     >
-      {/* Layer 1: the texture may crop, but is never distorted. */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-        aria-hidden="true"
-      />
-
-      {/* Layer 2: height controls scale; auto width preserves natural proportions. */}
+      {/* The shared portfolio surface provides the continuous background. */}
       <img
         src={mujtabaCutout}
         alt="Mujtaba"

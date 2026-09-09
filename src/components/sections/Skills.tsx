@@ -1,4 +1,3 @@
-import heroBackground from '../../assets/hero/hero-background.png'
 import CapabilityCard, { type Capability } from '../skills/CapabilityCard'
 import Foundations from '../skills/Foundations'
 import AiAutomationVisual from '../skills/visuals/AiAutomationVisual'
@@ -43,16 +42,9 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="skills-section relative isolate overflow-hidden bg-canvas pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20"
+      className="skills-section relative isolate overflow-hidden bg-transparent pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20"
       aria-labelledby="skills-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-canvas/35" aria-hidden="true" />
-
       <div className="mx-auto flex max-w-[1540px] items-center justify-between px-6 sm:px-8 lg:px-10 xl:px-12" aria-hidden="true">
         <div className="flex items-center gap-5 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#855b38] sm:text-[11px]">
           <span className="h-px w-10 bg-[#9a6338]/65 sm:w-14" />

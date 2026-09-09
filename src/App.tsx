@@ -13,19 +13,21 @@ export default function App() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <Reveal>
-          <About />
-        </Reveal>
-        <Reveal>
-          <Projects />
-        </Reveal>
-        <Reveal>
-          <Skills />
-        </Reveal>
-        <Reveal>
-          <Education />
-        </Reveal>
+        <div className="portfolio-surface">
+          <Hero />
+          <Reveal>
+            <About />
+          </Reveal>
+          <Reveal>
+            <Projects />
+          </Reveal>
+          <Reveal>
+            <Skills />
+          </Reveal>
+          <Reveal>
+            <Education />
+          </Reveal>
+        </div>
         <Reveal>
           <Contact />
         </Reveal>
