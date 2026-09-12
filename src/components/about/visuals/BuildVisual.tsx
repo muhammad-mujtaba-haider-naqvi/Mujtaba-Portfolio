@@ -1,28 +1,38 @@
-import { Code2, Database, Monitor } from 'lucide-react'
-
 type VisualProps = { isVisible: boolean }
-
-const layers = [
-  { id: 'ui', Icon: Monitor },
-  { id: 'api', Icon: Code2 },
-  { id: 'data', Icon: Database },
-]
 
 export default function BuildVisual({ isVisible }: VisualProps) {
   return (
-    <div className={`about-visual build-visual ${isVisible ? 'about-visual--active' : ''}`} style={{ width: 144, height: 108 }} aria-hidden="true">
-      <div className="build-flow">
-        {layers.map(({ id, Icon }, index) => (
-          <div key={id} className={`build-node build-node--${index + 1}`}>
-            <div className="build-panel">
-              <Icon className="build-icon" size={11} strokeWidth={1.8} />
-              <span className="build-track" />
-            </div>
-            <span className="build-link" />
-            <span className="build-dot" />
-            {index < layers.length - 1 && <span className="build-rail"><span className="build-rail-pulse" /></span>}
+    <div className={`about-visual build-visual ${isVisible ? 'about-visual--active' : ''}`} style={{ width: 190, height: 170 }} aria-hidden="true">
+      <div className="idea-flow">
+        <div className="flow-track" />
+        <span className="flow-particle" />
+
+        <div className="flow-stage stage-idea">
+          <div className="idea-bulb">
+            <span className="idea-glow" />
           </div>
-        ))}
+        </div>
+
+        <div className="flow-stage stage-code">
+          <div className="code-shell">
+            <span className="code-fragment code-fragment--a">{'{}'}</span>
+            <span className="code-fragment code-fragment--b">{'</>'}</span>
+          </div>
+        </div>
+
+        <div className="flow-stage stage-build">
+          <div className="gear-system">
+            <span className="gear-node gear-node--a" />
+            <span className="gear-node gear-node--b" />
+            <span className="gear-core" />
+          </div>
+        </div>
+
+        <div className="flow-stage stage-product">
+          <div className="product-window">
+            <span className="product-check" />
+          </div>
+        </div>
       </div>
     </div>
   )

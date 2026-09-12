@@ -14,7 +14,7 @@ function AgentNode({ className, delay, Icon }: AgentNodeProps) {
 
 export default function AiWorkflowVisual({ isVisible }: VisualProps) {
   return (
-    <div className={`about-visual agent-visual ${isVisible ? 'about-visual--active' : ''} relative shrink-0`} style={{ width: 144, height: 108 }} aria-hidden="true">
+    <div className={`about-visual agent-visual ${isVisible ? 'about-visual--active' : ''} relative shrink-0`} style={{ width: 190, height: 170 }} aria-hidden="true">
       <svg className="absolute inset-0 size-full" viewBox="0 0 144 108" fill="none">
         <path className="agent-line" pathLength="1" d="M72 54 C58 39 51 29 16 18 M72 54 C86 39 93 29 128 18 M72 54 C58 69 51 79 16 90 M72 54 C86 69 93 79 128 90" />
       </svg>

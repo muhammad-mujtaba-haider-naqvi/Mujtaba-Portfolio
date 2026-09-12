@@ -60,7 +60,7 @@ export default function ValueCard({ card, index, visual }: ValueCardProps) {
           <p className={`mt-4 max-w-[350px] text-[15px] leading-[1.52] lg:text-[15px] xl:text-[16px] ${palette.description}`}>{card.description}</p>
         </div>
 
-        <div className="relative z-10 flex min-h-[156px] items-center justify-center self-end sm:min-h-0 sm:self-center">
+        <div className="relative z-10 flex h-full min-h-[172px] items-center justify-center self-stretch sm:min-h-[180px] sm:self-center lg:min-h-[190px]">
           {visual(isVisible)}
         </div>
       </div>
