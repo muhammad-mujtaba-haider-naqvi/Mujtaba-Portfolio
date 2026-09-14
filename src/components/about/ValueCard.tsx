@@ -48,19 +48,20 @@ export default function ValueCard({ card, index, visual }: ValueCardProps) {
   return (
     <article
       ref={cardRef}
-      className={`value-card ${isVisible ? 'value-card--visible' : ''} relative min-h-[458px] overflow-hidden rounded-[28px] border p-7 pb-14 shadow-[0_18px_45px_rgba(72,48,30,0.12)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[2px] hover:shadow-[0_22px_52px_rgba(72,48,30,0.18)] sm:min-h-[350px] sm:rounded-[32px] sm:p-8 sm:pb-12 lg:h-[320px] lg:min-h-0 lg:p-8 lg:pb-12 xl:p-9 xl:pb-12 ${palette.surface}`}
+      className={`value-card value-card--${card.variant} ${isVisible ? 'value-card--visible' : ''} relative min-h-[540px] overflow-hidden rounded-[28px] border p-7 pb-16 shadow-[0_18px_45px_rgba(72,48,30,0.12)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[3px] hover:shadow-[0_24px_58px_rgba(72,48,30,0.2)] sm:min-h-[390px] sm:rounded-[32px] sm:p-8 sm:pb-14 lg:min-h-[378px] xl:p-10 xl:pb-14 ${palette.surface}`}
       style={{ '--card-delay': `${index * 100}ms` } as CSSProperties}
     >
-      <div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-[1.25fr_0.75fr] sm:gap-6 lg:grid-cols-[1.32fr_0.68fr]">
-        <div className="relative z-10 min-w-0">
-          <p className={`font-sans text-[52px] font-bold leading-[0.82] tracking-[-0.06em] sm:text-[58px] lg:text-[60px] ${palette.number}`}>{card.number}</p>
-          <h3 className="mt-5 whitespace-pre-line font-sans text-[22px] font-bold leading-[1.04] tracking-[-0.035em] sm:mt-4 sm:text-[24px] lg:text-[24px] xl:text-[26px]">
+      <div className="value-card__layout h-full">
+        <div className="value-card__copy relative z-10 min-w-0">
+          <p className={`font-sans text-[54px] font-bold leading-[0.82] tracking-[-0.06em] sm:text-[62px] xl:text-[68px] ${palette.number}`}>{card.number}</p>
+          <h3 className="mt-5 whitespace-pre-line font-sans text-[23px] font-bold leading-[1.04] tracking-[-0.035em] sm:mt-5 sm:text-[25px] lg:text-[24px] xl:text-[28px]">
             {card.title}
           </h3>
-          <p className={`mt-4 max-w-[350px] text-[15px] leading-[1.52] lg:text-[15px] xl:text-[16px] ${palette.description}`}>{card.description}</p>
+          <p className={`mt-4 max-w-[390px] text-[15px] leading-[1.58] sm:text-[16px] xl:text-[17px] ${palette.description}`}>{card.description}</p>
         </div>
 
-        <div className="relative z-10 flex h-full min-h-[172px] items-center justify-center self-stretch sm:min-h-[180px] sm:self-center lg:min-h-[190px]">
+        <div className="value-card__stage relative z-10" aria-hidden="true">
+          <span className="value-card__stage-label">{index === 0 ? 'FROM IDEA TO SHIP' : index === 1 ? 'ONE CONNECTED SYSTEM' : index === 2 ? 'SMARTER FLOW' : 'MEASURED IMPACT'}</span>
           {visual(isVisible)}
         </div>
       </div>

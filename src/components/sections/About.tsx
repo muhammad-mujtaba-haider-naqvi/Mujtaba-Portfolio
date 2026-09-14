@@ -16,7 +16,7 @@ const visuals = [BuildVisual, FullPictureVisual, AiWorkflowVisual, ResultsVisual
 export default function About() {
   return (
     <section id="about" className="portfolio-section portfolio-section--after-hero about-section relative isolate overflow-hidden bg-transparent" aria-labelledby="about-heading">
-      <div className="mx-auto flex max-w-[1480px] items-center px-6 sm:px-8 lg:px-10" aria-hidden="true">
+      <div className="mx-auto flex max-w-[1760px] items-center px-6 sm:px-8 lg:px-10" aria-hidden="true">
         <div className="flex items-center gap-5 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#855b38] sm:text-[11px]">
           <span className="h-px w-10 bg-[#9a6338]/65 sm:w-14" />
           What I Bring
