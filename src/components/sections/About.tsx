@@ -16,20 +16,23 @@ const visuals = [BuildVisual, FullPictureVisual, AiWorkflowVisual, ResultsVisual
 export default function About() {
   return (
     <section id="about" className="portfolio-section portfolio-section--after-hero about-section relative isolate overflow-hidden bg-transparent" aria-labelledby="about-heading">
-      <div className="mx-auto flex max-w-[1760px] items-center px-6 sm:px-8 lg:px-10" aria-hidden="true">
-        <div className="flex items-center gap-5 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#855b38] sm:text-[11px]">
-          <span className="h-px w-10 bg-[#9a6338]/65 sm:w-14" />
-          What I Bring
+      <div className="mx-auto flex max-w-[1760px] items-center gap-5 px-6 text-[8px] font-semibold uppercase tracking-[0.34em] text-[#855b38] sm:gap-7 sm:px-8 sm:text-[10px] lg:px-10" aria-hidden="true">
+        <div className="flex shrink-0 items-center gap-4 sm:gap-5">
+          <span>Why Partner</span>
+          <span className="h-px w-8 bg-[#9a6338]/55 sm:w-14" />
+        </div>
+        <span className="hidden h-px flex-1 bg-[#9a6338]/20 sm:block" />
+        <div className="ml-auto flex shrink-0 items-center gap-4 sm:gap-5">
+          <span className="h-px w-8 bg-[#9a6338]/55 sm:w-14" />
+          <span>Value · Impact · Growth</span>
         </div>
       </div>
 
-      <header className="mx-auto mt-3 max-w-[880px] px-6 text-center sm:px-8">
-        <h2 id="about-heading" className="font-sans text-[clamp(2.55rem,4vw,4rem)] font-bold leading-[0.96] tracking-[-0.055em] text-ink">
-          Why Work With Me
+      <header className="mx-auto mt-4 max-w-[1320px] px-6 text-center sm:px-8">
+        <h2 id="about-heading" className="font-sans text-[clamp(2.5rem,4.4vw,4.65rem)] font-bold leading-[0.9] tracking-[-0.06em] text-ink">
+          <span className="block">Why You Should Partner With Me</span>
+          <span className="mt-1 block text-[#a87349]">Today and Beyond</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-[680px] text-[15px] leading-relaxed text-charcoal sm:text-[17px]">
-          I don&rsquo;t just write code. I build practical software designed to solve real problems.
-        </p>
       </header>
 
       <div className="showcase-card-grid">
