@@ -1,20 +1,37 @@
 type VisualProps = { isVisible: boolean }
 
+const metrics = [
+  { value: '+32%', label: 'PERFORMANCE', modifier: 'performance' },
+  { value: '99%', label: 'RELIABILITY', modifier: 'reliability' },
+  { value: '+18%', label: 'ENGAGEMENT', modifier: 'engagement' },
+]
+
 export default function ResultsVisual({ isVisible }: VisualProps) {
   return (
-    <div className={`about-visual impact-dashboard ${isVisible ? 'about-visual--active' : ''}`} aria-hidden="true">
-      <div className="impact-dashboard__metric">
-        <span>SPEED</span><i className="impact-bar impact-bar--speed" />
+    <div className={`about-visual impact-panel ${isVisible ? 'about-visual--active' : ''}`} aria-hidden="true">
+      <div className="impact-panel__header">
+        <span><i>↗</i> PROJECT IMPACT</span>
+        <small>LAST 6 MONTHS</small>
       </div>
-      <div className="impact-dashboard__metric">
-        <span>TIME</span><i className="impact-bar impact-bar--time" />
+
+      <div className="impact-panel__metrics">
+        {metrics.map((metric) => (
+          <div className={`impact-kpi impact-kpi--${metric.modifier}`} key={metric.label}>
+            <div className="impact-kpi__chart">
+              <svg viewBox="0 0 52 52">
+                <circle className="impact-kpi__ring-track" cx="26" cy="26" r="21" pathLength="100" />
+                <circle className="impact-kpi__ring-progress" cx="26" cy="26" r="21" pathLength="100" />
+              </svg>
+              <strong>{metric.value}</strong>
+            </div>
+            <span>{metric.label}</span>
+          </div>
+        ))}
       </div>
-      <div className="impact-dashboard__growth">
-        <span>VALUE</span>
-        <svg viewBox="0 0 100 38" fill="none">
-          <path className="impact-growth-line" pathLength="1" d="M3 32C16 31 23 26 32 27C44 28 47 17 58 19C72 21 76 8 96 5" />
-          <circle className="impact-growth-dot" cx="96" cy="5" r="3" />
-        </svg>
+
+      <div className="impact-panel__footer">
+        <span><i>↗</i> CONTINUOUS IMPROVEMENT</span>
+        <div className="impact-panel__pulse"><i /></div>
       </div>
     </div>
   )

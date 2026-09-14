@@ -2281,3 +2281,227 @@ body {
     transform: scale(1.05);
   }
 }
+
+/* Card 04: compact project-impact dashboard inspired by the supplied reference. */
+.impact-panel {
+  width: 210px;
+  height: 148px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 248, 239, 0.72);
+  border-radius: 13px;
+  background: rgba(242, 230, 216, 0.94);
+  box-shadow: 0 16px 34px rgba(91, 55, 32, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  color: #493123;
+  opacity: 0;
+}
+
+.about-visual--active.impact-panel {
+  animation: impact-panel-enter 560ms cubic-bezier(0.22, 1, 0.36, 1) 180ms forwards;
+}
+
+.impact-panel__header,
+.impact-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 11px;
+  font-size: 5.4px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.impact-panel__header {
+  height: 29px;
+  border-bottom: 1px solid rgba(132, 91, 66, 0.13);
+}
+
+.impact-panel__header span,
+.impact-panel__footer span {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.impact-panel__header i,
+.impact-panel__footer i {
+  margin-right: 5px;
+  color: #9a6338;
+  font-size: 8px;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.impact-panel__header small {
+  color: rgba(73, 49, 35, 0.58);
+  font-size: 4.9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.impact-panel__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  height: 91px;
+  align-items: center;
+  padding: 9px 8px 7px;
+}
+
+.impact-kpi {
+  min-width: 0;
+  opacity: 0;
+  text-align: center;
+  transform: translateY(6px);
+}
+
+.about-visual--active .impact-kpi {
+  animation: impact-kpi-enter 420ms cubic-bezier(0.22, 1, 0.36, 1) 460ms forwards;
+}
+
+.about-visual--active .impact-kpi:nth-child(2) { animation-delay: 590ms; }
+.about-visual--active .impact-kpi:nth-child(3) { animation-delay: 720ms; }
+
+.impact-kpi__chart {
+  position: relative;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-inline: auto;
+  place-items: center;
+}
+
+.impact-kpi__chart svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.impact-kpi__ring-track,
+.impact-kpi__ring-progress {
+  fill: none;
+  stroke-width: 5;
+}
+
+.impact-kpi__ring-track {
+  stroke: rgba(132, 91, 66, 0.14);
+}
+
+.impact-kpi__ring-progress {
+  stroke: #7c5139;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-linecap: round;
+}
+
+.impact-kpi--performance { --ring-end: 68; }
+.impact-kpi--reliability { --ring-end: 1; }
+.impact-kpi--engagement { --ring-end: 82; }
+
+.about-visual--active .impact-kpi__ring-progress {
+  animation: impact-ring-draw 6.8s cubic-bezier(0.22, 1, 0.36, 1) 650ms infinite;
+}
+
+.about-visual--active .impact-kpi:nth-child(2) .impact-kpi__ring-progress { animation-delay: 820ms; }
+.about-visual--active .impact-kpi:nth-child(3) .impact-kpi__ring-progress { animation-delay: 990ms; }
+
+.impact-kpi__chart strong {
+  position: relative;
+  z-index: 1;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.impact-kpi > span {
+  display: block;
+  margin-top: 3px;
+  overflow: hidden;
+  font-size: 5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+}
+
+.impact-panel__footer {
+  position: relative;
+  height: 28px;
+  overflow: hidden;
+  border-top: 1px solid rgba(132, 91, 66, 0.13);
+}
+
+.impact-panel__pulse {
+  width: 38px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(132, 91, 66, 0.12);
+}
+
+.impact-panel__pulse i {
+  display: block;
+  width: 14px;
+  height: 100%;
+  margin: 0;
+  border-radius: inherit;
+  background: #9a6338;
+}
+
+.about-visual--active .impact-panel__pulse i {
+  animation: impact-progress-scan 3.4s ease-in-out 1.2s infinite;
+}
+
+@keyframes impact-panel-enter {
+  to { opacity: 1; }
+}
+
+@keyframes impact-kpi-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes impact-ring-draw {
+  0%, 5% { stroke-dashoffset: 100; }
+  18%, 92% { stroke-dashoffset: var(--ring-end); }
+  100% { stroke-dashoffset: 100; }
+}
+
+@keyframes impact-progress-scan {
+  0%, 100% { transform: translateX(-15px); opacity: 0; }
+  18%, 82% { opacity: 1; }
+  50% { transform: translateX(38px); }
+}
+
+@media (min-width: 1240px) and (max-width: 1399px) {
+  .value-card__stage .impact-panel { transform: scale(1.14); }
+  .value-card:hover .value-card__stage .impact-panel { transform: scale(1.18); }
+}
+
+@media (min-width: 1400px) {
+  .value-card__stage .impact-panel { transform: scale(1.4); }
+  .value-card:hover .value-card__stage .impact-panel { transform: scale(1.44); }
+}
+
+@media (max-width: 639px) {
+  .value-card__stage .impact-panel { transform: scale(1.18); }
+  .value-card:hover .value-card__stage .impact-panel { transform: scale(1.21); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .impact-panel,
+  .impact-kpi {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  .impact-kpi { transform: none; }
+
+  .impact-kpi__ring-progress,
+  .impact-panel__pulse i {
+    animation: none !important;
+  }
+
+  .impact-kpi__ring-progress { stroke-dashoffset: var(--ring-end); }
+  .impact-panel__pulse i { transform: translateX(12px); opacity: 1; }
+}
