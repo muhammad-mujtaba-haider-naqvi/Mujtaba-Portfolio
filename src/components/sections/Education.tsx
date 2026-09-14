@@ -12,6 +12,10 @@ type JourneyItem = {
   organization: string
   date: string
   description: string
+  details?: Array<{
+    label: string
+    value: string
+  }>
 }
 
 const experienceData: JourneyItem[] = [
@@ -44,14 +48,33 @@ const educationData: JourneyItem[] = [
     organization: 'COMSATS University Islamabad, Lahore Campus',
     date: '2023 – 2027',
     description:
-      'Pursuing a Bachelor of Science in Computer Science at COMSATS University Islamabad, Lahore Campus, with a current CGPA of 3.65.',
+      'Currently pursuing my undergraduate degree.',
+    details: [
+      { label: 'Program', value: 'Bachelor of Science in Computer Science' },
+      { label: 'CGPA', value: '3.65' },
+    ],
   },
   {
     title: 'A-levels',
     organization: 'Beaconhouse Newlands',
     date: '2021 – 2023',
     description:
-      'Completed A-levels in Mathematics, Computer Science, Physics and Chemistry, achieving 1 A* and 3 As.',
+      'Completed A-levels at Beaconhouse Newlands.',
+    details: [
+      { label: 'Subjects', value: 'Mathematics · Computer Science · Physics · Chemistry' },
+      { label: 'Result', value: '1 A* · 3 As' },
+    ],
+  },
+  {
+    title: 'O Levels — Pre-Medical Studies',
+    organization: 'Bloomfield Hall',
+    date: '2019 – 2021',
+    description:
+      'Achieved straight 8 A*s.',
+    details: [
+      { label: 'Leadership', value: 'Head Boy' },
+      { label: 'Activities', value: 'Debate · Event Organization · Football · Cricket' },
+    ],
   },
 ]
 
@@ -103,9 +126,19 @@ function JourneyTimeline({ items, isVisible, labelledBy }: JourneyTimelineProps)
               </span>
             </div>
 
-            <p className="col-start-2 row-start-3 mt-5 self-start text-[15px] leading-[1.65] text-charcoal sm:text-[16px] lg:col-start-4 lg:row-start-1 lg:mt-0 lg:self-center lg:pl-7 lg:text-[clamp(1rem,1.22vw,1.18rem)] lg:leading-[1.55]">
-              {item.description}
-            </p>
+            <div className="col-start-2 row-start-3 mt-5 self-start text-[15px] leading-[1.65] text-charcoal sm:text-[16px] lg:col-start-4 lg:row-start-1 lg:mt-0 lg:self-center lg:pl-7 lg:text-[clamp(1rem,1.22vw,1.18rem)] lg:leading-[1.55]">
+              <p>{item.description}</p>
+              {item.details && (
+                <dl className="mt-3 grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 gap-y-1.5 border-l-2 border-[#c2986d]/55 pl-4">
+                  {item.details.map((detail) => (
+                    <div className="contents" key={detail.label}>
+                      <dt className="font-semibold text-[#754729]">{detail.label}</dt>
+                      <dd>{detail.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+            </div>
           </li>
         ))}
       </ol>
