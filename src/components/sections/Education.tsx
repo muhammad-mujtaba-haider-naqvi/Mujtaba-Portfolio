@@ -24,21 +24,36 @@ const experienceData: JourneyItem[] = [
     organization: 'DaFi Labs',
     date: 'Jul 2026 – Sep 2026',
     description:
-      'Built agentic AI automation workflows connecting LLMs with real-world applications and APIs using n8n. Integrated Gmail, Airtable, OpenRouter, Tavily and ElevenLabs, and developed a JARVIS-inspired multi-agent system with orchestrated research, automation and voice-enabled workflows.',
+      'Built agentic AI automation workflows connecting LLMs with real-world applications and APIs using n8n.',
+    details: [
+      { label: 'Integrations', value: 'Gmail · Airtable · OpenRouter · Tavily · ElevenLabs' },
+      { label: 'Key Project', value: 'JARVIS-inspired multi-agent system' },
+      { label: 'Workflows', value: 'Orchestrated research · Automation · Voice-enabled workflows' },
+    ],
   },
   {
     title: 'Full Stack Developer',
     organization: 'Meta Onesoft IT Solutions',
     date: 'Jul 2025 – Sep 2025',
     description:
-      'Developed Python-based data processing and automation solutions, built and evaluated machine learning models, and improved model accuracy by 25% through feature engineering. Worked with OpenCV, NumPy, Git/GitHub and Agile development practices while developing automation features reaching 85%+ accuracy.',
+      'Developed Python-based data processing and automation solutions, and built and evaluated machine learning models.',
+    details: [
+      { label: 'Model Impact', value: 'Improved accuracy by 25% through feature engineering' },
+      { label: 'Tools', value: 'OpenCV · NumPy · Git/GitHub' },
+      { label: 'Delivery', value: 'Agile development · Automation features reaching 85%+ accuracy' },
+    ],
   },
   {
     title: 'Frontend Developer [UI/UX]',
     organization: 'CodeAlpha',
     date: 'Mar 2025 – Apr 2025',
     description:
-      'Built responsive interfaces using HTML5, CSS3 and JavaScript, designed UX/UI prototypes and wireframes, integrated REST APIs and improved cross-browser performance, contributing to a 15% improvement in user engagement.',
+      'Built responsive interfaces using HTML5, CSS3 and JavaScript.',
+    details: [
+      { label: 'Design', value: 'UX/UI prototypes · Wireframes' },
+      { label: 'Integration', value: 'REST APIs' },
+      { label: 'Impact', value: 'Improved cross-browser performance · Increased user engagement by 15%' },
+    ],
   },
 ]
 
@@ -66,7 +81,7 @@ const educationData: JourneyItem[] = [
     ],
   },
   {
-    title: 'O Levels — Pre-Medical Studies',
+    title: 'O-levels',
     organization: 'Bloomfield Hall',
     date: '2019 – 2021',
     description:
@@ -87,9 +102,10 @@ type JourneyTimelineProps = {
   items: JourneyItem[]
   isVisible: boolean
   labelledBy: string
+  variant: JourneyTab
 }
 
-function JourneyTimeline({ items, isVisible, labelledBy }: JourneyTimelineProps) {
+function JourneyTimeline({ items, isVisible, labelledBy, variant }: JourneyTimelineProps) {
   return (
     <div
       id="journey-panel"
@@ -103,9 +119,16 @@ function JourneyTimeline({ items, isVisible, labelledBy }: JourneyTimelineProps)
         {items.map((item, index) => (
           <li
             key={`${item.title}-${item.date}`}
-            className="journey-item grid min-h-[190px] grid-cols-[42px_minmax(0,1fr)] grid-rows-[auto_auto_1fr] pb-12 last:min-h-0 last:pb-0 lg:min-h-[180px] lg:grid-cols-[minmax(0,1.3fr)_220px_72px_minmax(0,1.8fr)] lg:grid-rows-1 lg:pb-0 xl:min-h-[190px]"
+            className={`journey-item relative grid grid-cols-[42px_minmax(0,1fr)] grid-rows-[auto_auto_1fr] lg:grid-cols-[minmax(0,1.3fr)_220px_72px_minmax(0,1.8fr)] lg:grid-rows-1 ${
+              variant === 'experience'
+                ? 'min-h-[245px] py-9 first:pt-0 last:pb-0 lg:min-h-[240px] lg:py-8 lg:first:pt-0 lg:last:pb-0 xl:min-h-[250px]'
+                : 'min-h-[190px] pb-12 last:min-h-0 last:pb-0 lg:min-h-[180px] lg:pb-0 xl:min-h-[190px]'
+            }`}
             style={{ animationDelay: `${index * 100}ms` }}
           >
+            {variant === 'experience' && index < items.length - 1 && (
+              <span className="absolute bottom-0 left-[42px] right-0 h-px bg-gradient-to-r from-[#9a6338]/30 via-[#9a6338]/15 to-transparent lg:left-0" aria-hidden="true" />
+            )}
             <div className="col-start-2 row-start-1 self-start pr-2 lg:col-start-1 lg:row-start-1 lg:self-center lg:pr-8">
               <h3 className="font-sans text-[clamp(1.45rem,2.1vw,2rem)] font-bold leading-[1.08] tracking-[-0.035em] text-ink">
                 {item.title}
@@ -129,7 +152,7 @@ function JourneyTimeline({ items, isVisible, labelledBy }: JourneyTimelineProps)
             <div className="col-start-2 row-start-3 mt-5 self-start text-[15px] leading-[1.65] text-charcoal sm:text-[16px] lg:col-start-4 lg:row-start-1 lg:mt-0 lg:self-center lg:pl-7 lg:text-[clamp(1rem,1.22vw,1.18rem)] lg:leading-[1.55]">
               <p>{item.description}</p>
               {item.details && (
-                <dl className="mt-3 grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 gap-y-1.5 border-l-2 border-[#c2986d]/55 pl-4">
+                <dl className="mt-3 grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 gap-y-1.5 border-l-2 border-[#c2986d]/55 pl-4 sm:grid-cols-[104px_minmax(0,1fr)]">
                   {item.details.map((detail) => (
                     <div className="contents" key={detail.label}>
                       <dt className="font-semibold text-[#754729]">{detail.label}</dt>
@@ -278,6 +301,7 @@ export default function Education() {
         items={activeItems}
         isVisible={isTimelineVisible}
         labelledBy={`${displayedTab}-tab`}
+        variant={displayedTab}
       />
     </section>
   )

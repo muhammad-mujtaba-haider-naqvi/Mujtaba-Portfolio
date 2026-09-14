@@ -21,7 +21,6 @@ export default function About() {
           <span>Why Partner</span>
           <span className="h-px w-8 bg-[#9a6338]/55 sm:w-14" />
         </div>
-        <span className="hidden h-px flex-1 bg-[#9a6338]/20 sm:block" />
         <div className="ml-auto flex shrink-0 items-center gap-4 sm:gap-5">
           <span className="h-px w-8 bg-[#9a6338]/55 sm:w-14" />
           <span>Value · Impact · Growth</span>
