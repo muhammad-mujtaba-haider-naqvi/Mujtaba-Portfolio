@@ -237,11 +237,6 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute left-8 top-[132px] z-10 hidden items-start gap-4 text-[10px] font-semibold uppercase leading-[1.9] tracking-[0.38em] text-[#9a704f] xl:flex" aria-hidden="true">
-        <span className="mt-1 h-14 w-px bg-[#9a6338]/65" />
-        <span>Build<br />Learn<br />Improve</span>
-      </div>
-
       <div
         ref={trackRef}
         className={`projects-track relative z-10 mt-9 ${isDragging ? 'cursor-grabbing select-none' : 'cursor-grab'}`}
@@ -311,10 +306,7 @@ export default function Projects() {
       </div>
 
       <div className="relative z-10 mx-auto mt-9 grid max-w-[1530px] grid-cols-1 items-center gap-7 px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-10">
-        <div className="hidden items-center gap-7 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#9a704f] lg:flex" aria-hidden="true">
-          <span className="h-px w-16 bg-[#9a6338]/65" />
-          Crafting a Brighter Tomorrow
-        </div>
+        <div className="hidden lg:block" aria-hidden="true" />
 
         <div className="flex items-center justify-center gap-3" aria-label="Project carousel pagination">
           {projects.map((project, index) => (
@@ -331,17 +323,14 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-10 lg:justify-end">
+        <div className="flex items-center justify-end">
           <a
             href="#projects"
-            className="group/view inline-flex h-11 items-center gap-4 rounded-full border border-[#9a6338] px-7 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#754729] outline-none transition-colors duration-200 hover:bg-[#9a6338] hover:text-canvas focus-visible:ring-2 focus-visible:ring-[#9a6338]"
+            className="group/view inline-flex h-12 items-center gap-4 rounded-full border border-[#845b42] bg-[#845b42] px-8 text-[12px] font-semibold uppercase tracking-[0.04em] text-white shadow-[0_9px_24px_rgba(72,48,30,0.16)] outline-none transition-colors duration-200 hover:bg-[#9a6338] hover:text-canvas focus-visible:ring-2 focus-visible:ring-[#9a6338]"
           >
             View All Projects
-            <ArrowRight className="transition-transform duration-200 group-hover/view:translate-x-1" size={16} />
+            <ArrowRight className="transition-transform duration-200 group-hover/view:translate-x-1" size={17} />
           </a>
-          <div className="hidden border-l border-[#9a6338]/65 pl-5 text-[9px] font-semibold uppercase leading-[1.8] tracking-[0.35em] text-[#9a704f] xl:block" aria-hidden="true">
-            Better<br />Ideas<br />Brighter<br />Tomorrow
-          </div>
         </div>
       </div>
     </section>
