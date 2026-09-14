@@ -181,7 +181,7 @@ export default function Footer() {
 
         <div className="h-px bg-white/25" aria-hidden="true" />
 
-        <div className="mx-auto flex w-[calc(100%-48px)] max-w-[1360px] flex-col gap-8 py-12 sm:w-[calc(100%-64px)] md:flex-row md:items-center md:justify-between md:gap-6 lg:pb-[114px] lg:pt-8">
+        <div className="mx-auto flex w-[calc(100%-48px)] max-w-[1360px] flex-col gap-6 py-8 sm:w-[calc(100%-64px)] md:flex-row md:items-center md:justify-between">
           <p className="text-[13px] tracking-[0.08em] text-[#bdb8b2]">
             © 2026 Syed Mujtaba. All rights reserved.
           </p>

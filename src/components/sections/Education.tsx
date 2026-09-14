@@ -126,9 +126,6 @@ function JourneyTimeline({ items, isVisible, labelledBy, variant }: JourneyTimel
             }`}
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            {variant === 'experience' && index < items.length - 1 && (
-              <span className="absolute bottom-0 left-[42px] right-0 h-px bg-gradient-to-r from-[#9a6338]/30 via-[#9a6338]/15 to-transparent lg:left-0" aria-hidden="true" />
-            )}
             <div className="col-start-2 row-start-1 self-start pr-2 lg:col-start-1 lg:row-start-1 lg:self-center lg:pr-8">
               <h3 className="font-sans text-[clamp(1.45rem,2.1vw,2rem)] font-bold leading-[1.08] tracking-[-0.035em] text-ink">
                 {item.title}

@@ -52,12 +52,12 @@ export default function Hero() {
             id="hero-heading"
             className="hero-title font-serif text-[clamp(3rem,4.25vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.025em] text-accent"
           >
-            <span className="block md:whitespace-nowrap">Computer Science &amp;</span>
-            <span className="block md:whitespace-nowrap">Software Developer</span>
+            <span className="block md:whitespace-nowrap">Software &amp; AI</span>
+            <span className="block md:whitespace-nowrap">Automation Engineer</span>
           </h1>
           <p className="hero-description mt-10 max-w-[440px] text-[17px] leading-[1.6] text-ink md:text-[18px]">
-            Building practical software and exploring
-            <br className="hidden sm:block" /> AI &amp; machine learning.
+            Engineering software and AI-powered solutions that 
+            <br className="hidden sm:block" /> create measurable business value.
           </p>
 
           <div className="hero-actions mt-9 flex flex-col gap-4 sm:flex-row sm:gap-5">
