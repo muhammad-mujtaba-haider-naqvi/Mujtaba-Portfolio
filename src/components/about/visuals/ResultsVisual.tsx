@@ -11,7 +11,6 @@ export default function ResultsVisual({ isVisible }: VisualProps) {
     <div className={`about-visual impact-panel ${isVisible ? 'about-visual--active' : ''}`} aria-hidden="true">
       <div className="impact-panel__header">
         <span><i>↗</i> PROJECT IMPACT</span>
-        <small>LAST 6 MONTHS</small>
       </div>
 
       <div className="impact-panel__metrics">
