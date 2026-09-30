@@ -1,5 +1,9 @@
 import CapabilityCard, { type Capability } from '../skills/CapabilityCard'
 import Foundations from '../skills/Foundations'
+import fullStackImage from '../../assets/skills/card-1.png'
+import aiAutomationImage from '../../assets/skills/card-2.png'
+import dataMachineLearningImage from '../../assets/skills/card-3.png'
+import devOpsDeliveryImage from '../../assets/skills/card-4.png'
 
 const capabilities: Capability[] = [
   {
@@ -8,6 +12,12 @@ const capabilities: Capability[] = [
     description: 'Responsive frontend, backend, APIs and database-driven applications.',
     footer: 'WEB · APIs · DATABASES',
     tone: 'coat',
+    image: {
+      src: fullStackImage,
+      alt: 'Full-stack application dashboard shown on laptop and mobile screens with API, database, and cloud deployment elements',
+      width: 1609,
+      height: 978,
+    },
   },
   {
     number: '02',
@@ -15,6 +25,12 @@ const capabilities: Capability[] = [
     description: 'AI agents, LLM workflows, APIs, webhooks and intelligent automation.',
     footer: 'LLMs · APIs · AUTOMATION',
     tone: 'brown',
+    image: {
+      src: aiAutomationImage,
+      alt: 'AI automation workspace with an AI robot, connected data inputs, and workflow integrations',
+      width: 1610,
+      height: 977,
+    },
   },
   {
     number: '03',
@@ -22,6 +38,12 @@ const capabilities: Capability[] = [
     description: 'Data analysis, preprocessing, machine learning and computer vision solutions.',
     footer: 'DATA · ML · COMPUTER VISION',
     tone: 'earth',
+    image: {
+      src: dataMachineLearningImage,
+      alt: 'Machine learning system transforming source data into a visual prediction with a confidence score',
+      width: 1535,
+      height: 1024,
+    },
   },
   {
     number: '04',
@@ -29,6 +51,12 @@ const capabilities: Capability[] = [
     description: 'Version control, containers, CI/CD workflows and reliable software delivery.',
     footer: 'GIT · CI/CD · DEPLOYMENT',
     tone: 'mocha',
+    image: {
+      src: devOpsDeliveryImage,
+      alt: 'DevOps continuous integration and delivery workflow connecting development tools to cloud deployment and monitoring',
+      width: 1609,
+      height: 977,
+    },
   },
 ]
 

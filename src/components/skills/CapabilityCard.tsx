@@ -4,7 +4,6 @@ import {
   useState,
   type CSSProperties,
 } from 'react'
-import skillPlaceholder from '../../assets/skills/skill-placeholder.svg'
 
 export type Capability = {
   number: string
@@ -12,6 +11,12 @@ export type Capability = {
   description: string
   footer: string
   tone: 'coat' | 'brown' | 'earth' | 'mocha'
+  image: {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
 }
 
 type CapabilityCardProps = {
@@ -77,10 +82,13 @@ export default function CapabilityCard({ capability, index }: CapabilityCardProp
         <div className="relative z-10 flex min-h-[270px] items-center justify-center sm:min-h-0">
           <div className="h-[250px] w-full max-w-[360px] overflow-hidden rounded-[22px] border border-white/20 bg-[#211d19] shadow-[0_14px_32px_rgba(25,20,16,0.22)] xl:h-[255px]">
             <img
-              src={skillPlaceholder}
-              alt={`${capability.title.replace('\n', ' ')} preview placeholder`}
-              className="size-full object-cover"
+              src={capability.image.src}
+              alt={capability.image.alt}
+              width={capability.image.width}
+              height={capability.image.height}
+              className="block size-full object-contain"
               loading="lazy"
+              decoding="async"
               draggable={false}
             />
           </div>
