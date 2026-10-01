@@ -11,84 +11,21 @@ import {
   type KeyboardEvent,
   type PointerEvent,
 } from 'react'
-import projectPlaceholder from '../../assets/projects/project-placeholder.svg'
-
-type Project = {
-  number: string
-  category: string
-  title: string
-  description: string
-  technologies: string
-  image: string
-  link: string
-}
-
-const projects: Project[] = [
-  {
-    number: '01',
-    category: 'Web App',
-    title: 'Campus Noticeboard Automation',
-    description: 'Automating campus notices with a modern web pipeline.',
-    technologies: 'React, Node.js, Express, MongoDB',
-    image: projectPlaceholder,
-    link: '#projects',
-  },
-  {
-    number: '02',
-    category: 'Machine Learning',
-    title: 'Image Classification Model',
-    description: 'A deep learning model for real-world image classification.',
-    technologies: 'Python, TensorFlow, OpenCV',
-    image: projectPlaceholder,
-    link: '#projects',
-  },
-  {
-    number: '03',
-    category: 'Design',
-    title: 'Restaurant Website',
-    description: 'A modern and responsive website for a restaurant.',
-    technologies: 'HTML, CSS, JavaScript, GSAP, Figma',
-    image: projectPlaceholder,
-    link: '#projects',
-  },
-  {
-    number: '04',
-    category: 'Full Stack',
-    title: 'Personal Finance Tracker',
-    description: 'A web application for managing finances effectively.',
-    technologies: 'React, Node.js, Express, PostgreSQL',
-    image: projectPlaceholder,
-    link: '#projects',
-  },
-  {
-    number: '05',
-    category: 'Automation',
-    title: 'Workflow Automation Suite',
-    description: 'Streamlining repetitive tasks through practical automation.',
-    technologies: 'Python, APIs, Process Automation',
-    image: projectPlaceholder,
-    link: '#projects',
-  },
-  {
-    number: '06',
-    category: 'AI / ML',
-    title: 'Travel Companion',
-    description: 'A smart travel planner with AI-powered recommendations.',
-    technologies: 'React, Python, Machine Learning',
-    image: projectPlaceholder,
-    link: '#projects',
-  },
-]
+import { projects, type Project } from '../../data/projects'
+import ProjectDetailsModal from '../projects/ProjectDetailsModal'
 
 type DragState = {
   pointerId: number
   startX: number
   startScrollLeft: number
+  moved: boolean
 }
 
 export default function Projects() {
   const trackRef = useRef<HTMLDivElement>(null)
   const dragRef = useRef<DragState | null>(null)
+  const suppressClickRef = useRef(false)
+  const [selection, setSelection] = useState<{ project: Project; trigger: HTMLElement | null } | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
 
@@ -148,6 +85,7 @@ export default function Projects() {
   }
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    suppressClickRef.current = false
     if (event.pointerType !== 'mouse' || event.button !== 0) return
     if ((event.target as HTMLElement).closest('a, button')) return
 
@@ -158,9 +96,8 @@ export default function Projects() {
       pointerId: event.pointerId,
       startX: event.clientX,
       startScrollLeft: track.scrollLeft,
+      moved: false,
     }
-    track.setPointerCapture(event.pointerId)
-    setIsDragging(true)
   }
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
@@ -168,7 +105,15 @@ export default function Projects() {
     const drag = dragRef.current
     if (!track || !drag || drag.pointerId !== event.pointerId) return
 
-    track.scrollLeft = drag.startScrollLeft - (event.clientX - drag.startX)
+    const distance = event.clientX - drag.startX
+    if (!drag.moved && Math.abs(distance) < 8) return
+    if (!drag.moved) {
+      drag.moved = true
+      suppressClickRef.current = true
+      track.setPointerCapture(event.pointerId)
+      setIsDragging(true)
+    }
+    track.scrollLeft = drag.startScrollLeft - distance
   }
 
   const finishDragging = (event: PointerEvent<HTMLDivElement>) => {
@@ -250,11 +195,19 @@ export default function Projects() {
         onPointerMove={handlePointerMove}
         onPointerUp={finishDragging}
         onPointerCancel={finishDragging}
+        onLostPointerCapture={finishDragging}
+        onPointerLeave={() => {
+          if (!dragRef.current?.moved) dragRef.current = null
+        }}
       >
         {projects.map((project, index) => (
           <article
             key={project.number}
             data-project-index={index}
+            onClick={(event) => {
+              if (suppressClickRef.current && event.detail !== 0) return
+              setSelection({ project, trigger: event.currentTarget.querySelector<HTMLButtonElement>('[data-project-open]') })
+            }}
             className="project-card group flex h-[510px] flex-none snap-center flex-col overflow-hidden rounded-[32px] border border-white/20 bg-[#845b42] shadow-[0_20px_52px_rgba(72,48,30,0.18)] transition duration-300 hover:-translate-y-[3px] hover:border-white/40 hover:bg-[#91664b] hover:shadow-[0_24px_58px_rgba(72,48,30,0.24)] sm:h-[520px] lg:h-[clamp(500px,56svh,530px)] lg:rounded-[36px]"
           >
             <div className="px-7 pt-7 sm:px-8 sm:pt-8 lg:px-9">
@@ -290,16 +243,15 @@ export default function Projects() {
                 loading="lazy"
                 draggable={false}
               />
-              <a
-                href={project.link}
+              <button
+                type="button"
+                data-project-open
+                aria-haspopup="dialog"
                 aria-label={`Open ${project.title}`}
                 className="group/link absolute right-3 top-3 grid size-12 place-items-center rounded-full border border-[#f5dfca] bg-[#4f3021]/95 text-[#fffaf3] outline-none transition-colors duration-200 hover:bg-[#3d2519] focus-visible:ring-2 focus-visible:ring-[#fffaf3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#845b42]"
-                {...(project.link.startsWith('http')
-                  ? { target: '_blank', rel: 'noopener noreferrer' }
-                  : {})}
               >
                 <ArrowUpRight className="transition-transform duration-200 group-hover/link:translate-x-px group-hover/link:-translate-y-px" size={21} strokeWidth={2} />
-              </a>
+              </button>
             </div>
           </article>
         ))}
@@ -333,6 +285,12 @@ export default function Projects() {
           </a>
         </div>
       </div>
+      {selection && <ProjectDetailsModal
+        key={selection.project.number}
+        project={selection.project}
+        returnFocusTo={selection.trigger}
+        onClose={() => setSelection(null)}
+      />}
     </section>
   )
 }
